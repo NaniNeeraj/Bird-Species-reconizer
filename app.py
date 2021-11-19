@@ -48,6 +48,29 @@ app = Flask(__name__)
 
 # model.save("last.h5")
 
+# from tensorflow.keras.applications.resnet50 import ResNet50
+# base_resnet = ResNet50(weights='imagenet', include_top = False, input_shape=(150,150,3))
+
+# out = base_resnet.output
+# out = GlobalAveragePooling2D()(out)
+# out = Dense(256, activation='relu')(out)
+# out = Dense(256, activation='relu')(out)
+# total_classes = 190
+# predictions = Dense(190, activation='softmax')(out)
+# model = Model(inputs=base_resnet.input, outputs=predictions)
+
+# for layer in base_resnet.layers:
+#     layer.trainable = False
+# model.compile(Adam(lr=.0001), loss='categorical_crossentropy', metrics=['accuracy']) 
+
+# model.fit(
+#         train_generator,
+#         steps_per_epoch=train_generator.samples/train_generator.batch_size,
+#         epochs=20,
+#         validation_data=validation_generator,
+#         validation_steps=validation_generator.samples/validation_generator.batch_size)
+
+# model.save("last.h5")
 
 model=load_model("last.h5")
 
